@@ -4,8 +4,8 @@ import random
 
 
 def começa():
-    print("Olá bem vindo ao Jogo do Nim!")
-    resposta = input("Você já conhece as regras?\nDigite '1' para sim e '2' para não:")
+    print("\nOlá bem vindo ao Jogo do Nim!")
+    resposta = input("\nVocê já conhece as regras?\nDigite '1' para sim e '2' para não:")
     regras(resposta)
     modos()
     while (True):
@@ -106,12 +106,14 @@ def modo_jogo(escolhido):
  
     if op == 1:
         print("Você escolheu partida isolada!\n")
+        time.sleep(1)
         if escolhido == 1:
             quem_começa()
         elif escolhido ==0:
             partida()
     elif op == 2:
-        print("Você escolheu campeonato!\n") 
+        print("Você escolheu campeonato!\n")
+        time.sleep(1)
         if escolhido == 0:
             campeonato()
         elif escolhido == 1:
@@ -125,6 +127,7 @@ def adversario():
     while True:
         try:
             adversario = int(input("Qual modo você deseja jogar? \n 1- Jogador Vs Jogador \n 2- Jogador Vs Maquina. \nModo: "))
+            time.sleep(1)
             break
         except ValueError:
             print("Oooops! Você não digitou nada, por favor digite novamente.")
@@ -146,7 +149,8 @@ def regras(r):
     while r != '1' and r != '2':
         r =input("Opa,opção invalida!\nDigite:1 para REGRAS OU 2-para JOGAR:")
     if r == '1' :
-        print("Então vamos começar\n")         
+        print("Então vamos começar!\n")
+        time.sleep(1)
     elif r == '2':
         print("Okay, irei te explicar como funciona!\n")
         print("O jogo do Nim é uma brincadeira muito antiga onde duas pessoas ou mais colocam determinado número de peças em uma mesa e escolhem quantas peças podem ser retiradas, vence quem retirar a ultima peça;\n")
@@ -190,6 +194,7 @@ def jogada_pc(jogada,n,m): #Função com objetivo de chamar a jogada do PC e inf
     time.sleep(1)
     print(f"O computador retirou {peças_removidas_pc} peça(s)")
     print(f"Agora resta(m){n} peça(s)\n")
+    time.sleep(1)
     if n == 0:
         print("Fim do jogo! Computador venceu!\n")
         return int(1)
@@ -199,6 +204,7 @@ def jogada_usuario (n,m): #Função com objetivo de chamar a jogada do usuario e
     print(f"Você retirou {peças_removidas_uso} peça(s)")
     n =  n- peças_removidas_uso
     print(f"Agora resta(m){n} peça(s)\n")
+    time.sleep(1)
     if n == 0:
         print("Fim do jogo! Você venceu!\n")
         return int(1)
@@ -206,7 +212,7 @@ def jogada_usuario (n,m): #Função com objetivo de chamar a jogada do usuario e
 def par_impar ():
     while True:
         try:
-            par_impar = int(input("Para decidir quem começa iremos fazer um par ou ímpar.  \nEscolha:\n1 para impar & 2 para par.\nResposta: "))
+            par_impar = int(input("\nPara decidir quem começa iremos fazer um par ou ímpar.  \nEscolha:\n1 para impar & 2 para par.\nResposta: "))
              
         except ValueError:
             print("Ooops! Você digitou algo muito errado por favor tente novamente!")
@@ -227,7 +233,7 @@ def deu_par_impar(soma,par):
     if (soma) % 2 != 0:
         print("Deu ímpar!")
         if par == 0:
-            print("Você venceu o par ou ímpar e irá começar o jogo! ")
+            print("\nVocê venceu, comece!\n")
             venceu = 1
           
         elif par == 1:
@@ -236,28 +242,31 @@ def deu_par_impar(soma,par):
     elif(soma) % 2 == 0:
         print("Deu par!")
         if par == 1:
-            print("Você venceu, comece!")
+            print("\nVocê venceu, comece!\n")
             venceu = 1
         elif par == 0:
             print("Você perdeu, computador começa!")
     return venceu
         
 def partida():
+    time.sleep(1)
     print("Escolha a dificuldade: ")
+    time.sleep(1)
     dificuldade = int(input("1 / Fácil \n2 / Médio \n3 / Díficil \n4 / Impossível\nDigite:"))
+    time.sleep(1)
     dificuldade =  seleciona_dificuldade(dificuldade)
     while True:
         try:
-            pecas_mesa  = int(input("Teremos quantas peças na mesa?\nResposta: "))
+            pecas_mesa  = int(input("\nTeremos quantas peças na mesa?\nResposta: "))
             break
         except ValueError:
             print("Ooops! Você não digitou algo algum, por favor tente novamente!")
             
     while pecas_mesa <= 0:
-        pecas_mesa  = int(input("Valor invalido! Por favor digite novamente \n Quantas peças? "))        
-
+        pecas_mesa  = int(input("Valor invalido! Por favor digite novamente \n Quantas peças?\nResposta:"))        
+    
     limite_peca = int(input("Limite de peças por jogada?"))
-
+    time.sleep(1)
     while limite_peca <= 0:
         limite_peca = int(input("Valor invalido!Por favor digite novamente \n Limite de peças por jogada? "))
     
@@ -270,7 +279,7 @@ def partida():
     num_jogador = int(input("Agora escolha um número: "))
     num_pc = random.randrange(1,101)
     time.sleep(2)
-    print(f"O PC escolheu o número: {num_pc}.")
+    print(f"\nO PC escolheu o número: {num_pc}.\n")
     
     soma = num_jogador + num_pc
     
@@ -280,7 +289,8 @@ def partida():
         peças_removidas_uso = usuario_escolhe_jogada(pecas_mesa,limite_peca)
         print(f"Você retirou {peças_removidas_uso} peça(s)")
         pecas_mesa =  pecas_mesa - peças_removidas_uso
-        print(f"Agora resta(limite_peca){pecas_mesa} peça(s)\n")
+        print(f"Agora resta(m){pecas_mesa} peça(s)\n")
+        time.sleep(1)
         if pecas_mesa == 0:
             print("Fim do jogo! Você venceu!\n")
             return int(1)
@@ -299,6 +309,7 @@ def partida():
         time.sleep(1)
         print(f"O computador retirou {peças_removidas_pc} peça(s)")
         print(f"Agora resta(m){pecas_mesa} peça(s)\n")
+        time.sleep(1)
         if pecas_mesa == 0:
             print("Fim do jogo! Computador venceu!\n")
             return int(1)
@@ -319,6 +330,7 @@ def partida():
             time.sleep(1)
             print(f"O computador retirou {peças_removidas_pc} peça(s)")
             print(f"Agora resta(m){pecas_mesa} peça(s)\n")
+            time.sleep(1)
             if pecas_mesa == 0:
                 print("Fim do jogo! Computador venceu!\n")
                 return int(1) 
@@ -382,7 +394,9 @@ def computador_escolhe_jogada(n,m):
 def usuario_escolhe_jogada(n,m):
     while True:
         try:
-            peças_a_remover_usu= int(input("Quantas peças você vai tirar?\n" ))
+            time.sleep(1)
+            peças_a_remover_usu= int(input("Quantas peças você vai tirar?\nResposta: " ))
+            time.sleep(1)
             break
         
         except:
@@ -390,13 +404,17 @@ def usuario_escolhe_jogada(n,m):
              
     while  peças_a_remover_usu  > m or peças_a_remover_usu <=0 :
         print("Oops! Jogada inválida! Tente de novo.\n")
-        peças_a_remover_usu = int(input("Quantas peças você vai tirar? \n"))
+        time.sleep(1)
+        peças_a_remover_usu = int(input("Quantas peças você vai tirar?\nResposta: "))
+        time.sleep(1)
     return peças_a_remover_usu 
 
 def jogador_um_joga(n,m):
     while True:
         try:
+            time.sleep(1)
             peças_a_remover= int(input(f"Quantas peças você vai tirar {jogador_um}: \n" ))
+            time.sleep(1)
             break
         except:
             print("Ooops! Parece que você não digitou nada, tente novamente.")
@@ -428,11 +446,12 @@ def partida_pvp():
             
 
     while n <= 0:
-        n  = int(input("Valor invalido! Por favor digite novamente \n Quantas peças: "))        
+        n  = int(input("Valor invalido! Por favor digite novamente \nQuantas peças: "))        
 
     while True:
         try:
             m = int(input("Limite de peças por jogada: "))
+            time.sleep(1)
             break
         except ValueError:
             print("Oops! Número invalido! Por favor digite novamente.")
