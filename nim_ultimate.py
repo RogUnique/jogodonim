@@ -293,7 +293,7 @@ def partida(partida_atual):
             break
         except ValueError:
             print("Vish, parece que você não digitou nada.\nVamos tentar de novo. ")
-1
+
    
     num_pc = random.randint(0,10)
     time.sleep(1.5)
