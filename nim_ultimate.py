@@ -84,23 +84,22 @@ def quem_começa():
             print("Ooops, parece que você não digitou nada! Tente novamente")
              
         
-    resultado = int((num_p1 + num_p2)%2)
-    if resultado != 0 :
+    resto = int((num_p1 + num_p2)%2)
+    if resto != 0 :
         if escolheu_par == 0:
             print(f"{jogador_um} venceu!")
             player1_começa = 1
         elif escolheu_par == 1:
             print(f"{jogador_dois} venceu!")
             player1_começa = 0
-    elif resultado == 0:
+    elif resto == 0:
         if escolheu_par == 1:
             print(f"{jogador_um} venceu!")
             player1_começa = 1
         elif escolheu_par == 0:
             print(f"{jogador_dois} venceu!")
             player1_começa = 0
-    if  escolhido == 1:
-        partida_pvp()
+     
     return player1_começa
 #Função que inicia o modo indicado pelo jogador, '1' para partida isolado '2' para campeonato    
 def modo_jogo(escolhido):
@@ -294,7 +293,7 @@ def partida(partida_atual):
             break
         except ValueError:
             print("Vish, parece que você não digitou nada.\nVamos tentar de novo. ")
-
+1
    
     num_pc = random.randint(0,10)
     time.sleep(1.5)
@@ -308,7 +307,7 @@ def partida(partida_atual):
         peças_removidas_uso = usuario_escolhe_jogada(pecas_mesa,limite_peca)
         print(f"Você retirou {peças_removidas_uso} peça(s)")
         pecas_mesa =  pecas_mesa - peças_removidas_uso
-        print(f"Agora resta(m){pecas_mesa} peça(s)\n")
+        print(f"Agora resta(m) {pecas_mesa} peça(s)\n")
         time.sleep(1)
         if pecas_mesa == 0:
             win +=2
@@ -328,7 +327,7 @@ def partida(partida_atual):
         pecas_mesa =  pecas_mesa - peças_removidas_pc
         time.sleep(1)
         print(f"O computador retirou {peças_removidas_pc} peça(s)")
-        print(f"Agora resta(m){pecas_mesa} peça(s)\n")
+        print(f"Agora resta(m) {pecas_mesa} peça(s)\n")
         time.sleep(1)
         if pecas_mesa == 0:
             print("***O computador venceu!***")
@@ -485,7 +484,7 @@ def jogador_um_joga(n,m):
 def jogador_dois_joga(n,m):
     while True:
         try:
-            peças_a_remover= int(input(f"Quantas peças você vai tirar {jogador_dois}: \n" ))
+            peças_a_remover= int(input(f"Quantas peças você vai tirar {jogador_dois}?\nResposta: " ))
             while  peças_a_remover  > m or  peças_a_remover > n or peças_a_remover <=0 :
                 if peças_a_remover > m:
                     print(f"Valor maior que o limite de peças por jogada: {m}.Tente de novo.")
@@ -516,8 +515,9 @@ def partida_pvp():
         try:
             m = int(input("Limite de peças a serem retiradas por jogada: "))
             while m >= n:
-                print(f"O limite de peças deve menor que o número de peças na mesa: {n}")
-            time.sleep(1)
+                print(f"O limite de peças deve menor que o número de peças na mesa.\nPeças na mesa: {3}")
+                m = int(input("Limite de peças a serem retiradas por jogada: "))
+             
             break
         except ValueError:
             print("Oops! Número invalido! Por favor digite novamente.")     
@@ -538,7 +538,7 @@ def partida_pvp():
             peças_removidas = jogador_dois_joga(n,m)
             print(f"{jogador_dois} retirou {peças_removidas} peça(s)")
             n =  n- peças_removidas
-            print(f"Agora resta(m){n}peça(s)\n")
+            print(f"Agora resta(m) {n}peça(s)\n")
             if n == 0:
                 print(f"Fim do jogo! {jogador_dois} venceu!\n")
                 return int(2)
@@ -566,3 +566,11 @@ def partida_pvp():
 
     
 começa()       
+
+
+  
+
+
+
+ 
+
