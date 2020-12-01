@@ -26,7 +26,7 @@ E eu estava 100% dentro desse fenomeno, o que estava adiando a postagem dele aqu
 este meu filho.
 
 <H1> Jogo Do Nim Ultimate</h1>
-Agora bora explicar como é a versão <strike>esprimida</strike> Ultimate do Jogo do Nim.
+Agora bora explicar como é a versão <strike>estendida</strike> Ultimate do Jogo do Nim.
 
 <h2> Sobre o Jogo </H2>
 
