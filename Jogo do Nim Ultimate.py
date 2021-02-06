@@ -1,3 +1,4 @@
+ 
 #JOGO DO NIM
 import time
 import random 
@@ -22,7 +23,7 @@ def modos():
 def jogar_novamente():
     while True:
         try:
-            resposta = int(input("Digite 1 para: Jogar novamente\nDigite 2 para: voltar ao menu inicial. "))
+            resposta = int(input("Digite 1 para: Jogar novamente\nDigite 2 para: voltar ao menu inicial.\n"))
             if resposta == 1:
                 print("Você decidiu jogar novamente")
                 modos()
@@ -41,7 +42,7 @@ def jogar_novamente():
 def quem_começa():
     global jogador_um
     global jogador_dois
-    global player1_começa
+    
     jogador_um = input("Digite o nome do jogador 1: ")
     while jogador_um =="":
         print("O nome e algo importante para o jogo. Pense em um bem criativo!")
@@ -110,10 +111,10 @@ def modo_jogo(escolhido):
             if  opção == 1:
                 print("Você escolheu partida isolada!\n")
                 time.sleep(1)
-                if escolhido == 1:
-                   
-                    quem_começa()
-                elif escolhido ==0:
+                if escolhido == 1:     
+                    player1_comeca = quem_começa()
+                    partida_pvp(player1_comeca)
+                elif escolhido == 0:
                     partida_atual = 1
                     partida(partida_atual)
             elif  opção == 2:
@@ -127,7 +128,7 @@ def modo_jogo(escolhido):
                 opção  = int(input("Vish algo de errado não está certo!\nEscolha:\n1 - para jogar uma partida isolada:\n2 - para jogar um campeonato:\nResposta: "))
             break
         except ValueError:
-            print("Ooops, parece que você não digitou! Digite nov1amente por favor.")
+            print("Ooops, parece que você não digitou! Digite novamente por favor.")
  
     
     while  opção != 1 and opção != 2:
@@ -500,7 +501,7 @@ def jogador_dois_joga(n,m):
             
     return peças_a_remover 
 
-def partida_pvp():
+def partida_pvp(player1_começa):
     while True:
         try:
             n  = int(input("Quantas peças na mesa?\nResposta: "))
@@ -572,5 +573,4 @@ começa()
 
 
 
- 
-
+  
